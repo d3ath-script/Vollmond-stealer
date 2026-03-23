@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{089682FF-E2A9-4E54-A807-18634B730BA8}|Vollmond\\Vollmond.csproj|c:\\users\\jacky\\source\\repos\\vollmond\\vollmond\\urls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{089682FF-E2A9-4E54-A807-18634B730BA8}|Vollmond\\Vollmond.csproj|solutionrelative:vollmond\\urls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\URLs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:payload\\URLs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\README.md||{24510B54-A648-4D69-A6C5-F68CBDF07546}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:payload\\README.md||{24510B54-A648-4D69-A6C5-F68CBDF07546}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:payload\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "URLs.cs",
+              "DocumentMoniker": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\Vollmond\\URLs.cs",
+              "RelativeDocumentMoniker": "Vollmond\\URLs.cs",
+              "ToolTip": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\Vollmond\\URLs.cs",
+              "RelativeToolTip": "Vollmond\\URLs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T10:59:33.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\README.md",
+              "RelativeDocumentMoniker": "payload\\README.md",
+              "ToolTip": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\README.md",
+              "RelativeToolTip": "payload\\README.md",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA0wAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-23T10:49:43.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\Program.cs",
+              "RelativeDocumentMoniker": "payload\\Program.cs",
+              "ToolTip": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\Program.cs",
+              "RelativeToolTip": "payload\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T10:41:27.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "URLs.cs",
+              "DocumentMoniker": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\URLs.cs",
+              "RelativeDocumentMoniker": "payload\\URLs.cs",
+              "ToolTip": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\payload\\URLs.cs",
+              "RelativeToolTip": "payload\\URLs.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T10:41:26.412Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
