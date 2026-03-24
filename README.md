@@ -15,4 +15,4 @@ __*This stealer stealing:*__
 __This stealer have the newest antivirus bypass (u can see it in directory "Security Bypass". Its an exploit what using Driver vulnerability in windows what allows killing antivirus processes__
 
 ### How do use it?
-**Just enter the Discord webhook, build the exe, and that's it! It's that simple, yeah?**
+**Open URLs.cs and in line webhhok enter your discord webhook , build the exe, and that's it! It's that simple, yeah?**
