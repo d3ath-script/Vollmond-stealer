@@ -51,9 +51,12 @@ namespace Vollmond
             }
             catch { }
 
-            Auxiliary_payload.play_rick.Start();
-            MessageBox.Show("U are rickrolled muhaha", "Rick Astley",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (URLs.is_need_rickroll == true)
+            {
+                Auxiliary_payload.play_rick.Start();
+                MessageBox.Show("U are rickrolled muhaha", "Rick Astley",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             // Removing files after user tap OK in messageBox
             try
