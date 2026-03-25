@@ -45,6 +45,14 @@
           "SelectedChildIndex": 7,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "StealAllBrowsers.cs",
@@ -54,8 +62,7 @@
               "RelativeToolTip": "Vollmond\\Browsers\\StealAllBrowsers.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAwwA8AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T11:06:52.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-25T11:06:52.759Z"
             },
             {
               "$type": "Document",
@@ -67,29 +74,19 @@
               "RelativeToolTip": "Vollmond\\Streaming platforms\\Spotify.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T10:40:26.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-25T10:40:26.642Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Vollmond",
+              "Title": "Vollmond.csproj",
               "DocumentMoniker": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\Vollmond\\Vollmond.csproj",
               "RelativeDocumentMoniker": "Vollmond\\Vollmond.csproj",
               "ToolTip": "C:\\Users\\Jacky\\source\\repos\\Vollmond\\Vollmond\\Vollmond.csproj",
               "RelativeToolTip": "Vollmond\\Vollmond.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-25T10:38:36.039Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2026-03-25T10:38:36.039Z"
             },
             {
               "$type": "Document",
@@ -101,8 +98,7 @@
               "RelativeToolTip": "Vollmond\\Browsers\\ExtractResources.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T10:27:11.9Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-25T10:27:11.9Z"
             },
             {
               "$type": "Document",
@@ -114,8 +110,7 @@
               "RelativeToolTip": "Vollmond\\Program.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAA0wEUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T12:59:50.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T12:59:50.361Z"
             },
             {
               "$type": "Document",
