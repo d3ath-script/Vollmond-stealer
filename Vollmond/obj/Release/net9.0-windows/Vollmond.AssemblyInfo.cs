@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vollmond")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+543038b65f4c6ea24fa7f8edeeb93400ac43b652")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+639b824bcd42d37f529b1e03272c36070bd262c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vollmond")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vollmond")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
