@@ -8,6 +8,7 @@ __*This stealer stealing:*__
 -  **Telegram Session**
 - **Proton VPN**
 - **Tlauncher account**
+- **Spotify accounts**
 - **Potentially important files**
 - **Screenshot**
 - **Browsers (Brave, yandex, chrome)**
