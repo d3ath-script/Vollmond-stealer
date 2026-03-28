@@ -7,7 +7,7 @@ using System.Text.Unicode;
 
 namespace Vollmond
 {
-    public class Auxiliary_payload
+    public class Auxiliary
     {
         public static string discord_payload = "";
 

