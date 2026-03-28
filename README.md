@@ -13,6 +13,7 @@ __*This stealer stealing:*__
 - **Screenshot**
 - **Browsers (Brave, yandex, chrome)**
 - **Steam session**
+- **Git private openssh keys**
 
 __This stealer have the newest antivirus bypass (u can see it in directory "Security Bypass". Its an exploit what using Driver vulnerability in windows what allows killing antivirus processes__
 
