@@ -12,6 +12,7 @@ __*This stealer stealing:*__
 - **Potentially important files**
 - **Screenshot**
 - **Browsers (Brave, yandex, chrome)**
+- **Steam session**
 
 __This stealer have the newest antivirus bypass (u can see it in directory "Security Bypass". Its an exploit what using Driver vulnerability in windows what allows killing antivirus processes__
 
