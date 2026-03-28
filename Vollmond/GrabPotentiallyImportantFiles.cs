@@ -22,7 +22,7 @@
                 ".conf", ".sql", ".db",
                 ".dbf", ".mdb", ".accdb",
                 ".old", ".xml", ".vpn",
-                ".ovpn", ".torrent"
+                ".ovpn", ".torrent", ".hexlic"
                 };
 
                 string[] directories = new string[]
