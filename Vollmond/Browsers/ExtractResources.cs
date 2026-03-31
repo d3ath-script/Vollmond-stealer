@@ -4,7 +4,7 @@ namespace Vollmond.Browsers
 {
     public class ExtractResources
     {
-        public static string ExtractResource(string Namespace, string filename, string outputPath) // Return path to the exctracted file
+        public static string ExtractResource(string Namespace, string filename, string outputPath)
         {
             try
             {

