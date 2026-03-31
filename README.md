@@ -20,5 +20,3 @@ __This stealer have the newest antivirus bypass (u can see it in directory "Secu
 
 ### How do use it?
 **Open URLs.cs and in line webhhok enter your discord webhook , build the exe, and that's it! It's that simple, yeah?**
-
-> __ℹ️ I need contributors. Contact me: @death_script (telegram) ℹ️__
