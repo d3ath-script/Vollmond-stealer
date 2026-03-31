@@ -12,6 +12,7 @@ __*This stealer stealing:*__
 - **Potentially important files**
 - **Screenshot**
 - **Browsers (Brave, yandex, chrome)**
+- **Discord tokens (from desktop version and from browsers)**
 - **Steam session**
 - **Git private openssh keys**
 
