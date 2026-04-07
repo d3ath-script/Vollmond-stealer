@@ -39,7 +39,7 @@ namespace Vollmond.games
                 }
             }
             catch { }
-            }
+        }
 
         private static string? GetSteamPath()
         {
