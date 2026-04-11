@@ -82,7 +82,7 @@ namespace Vollmond.messengers
                 __In the tokens.txt file, you may see entries like: ANak2n_naj197hb - these are tokens.__
 
                 1. **[Download this extension for Chrome](https://chromewebstore.google.com/detail/discord-token-login/pdmpkpjlmnndlfdllmnekbmgjikhghjg)**
-                1. **In the extension, enter all the tokens one by one until you log in to your account (one token is valid; the other tokens are invalid)**
+                1. **In the extension, enter all the tokens one by one until you log in to your account**
                 """;
             File.WriteAllText(Path.Combine(baseDir, "INSTRUCTION.md"), content);
         }

